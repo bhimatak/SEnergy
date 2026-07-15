@@ -1,0 +1,40 @@
+Q1. Problem Statement:
+Given an array A of positive integers. Count number of smaller elements on right side of each array.
+
+Input Format:
+First line contains N as integer.
+Second line contains N no of elements of type integer.
+
+Output Format:
+
+Constratins:
+2<=N<=100
+
+Sample Input:
+5
+5 4 3 2 1
+Sample Output:
+4 3 2 1 0
+
+
+Sample Input:
+5
+5 4 20 10 3
+Sample Output:
+2 1 2 1 0
+
+
+
+
+
+Q.3
+
+C Program to Find the Frequency of Every Word in a given String
+
+i/p
+"Hi I am a C Programmer, I Love C Coding, I am Passionate towards C Coding"
+o/p
+I = 3
+am = 2
+C = 3
+Coding = 2
