@@ -38,13 +38,16 @@ int main()
     printf("\n1st  element array = %f\n",*arr);
     
     
-
+    /*
     cout<<*ptr<<endl;
     ptr++;
     cout<<*ptr<<endl;
     ptr--;
     cout<<*ptr<<endl;
-    
+    */
+
+    ptr = &arr[0];
+    cout<<*(ptr+0)<<endl;
 
     return 0;
 }
