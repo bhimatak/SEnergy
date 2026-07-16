@@ -1,0 +1,101 @@
+Problem 1: Create a Student class with:
+
+Private: name, rollNumber, marks[3]
+Public: Constructor, calculateAverage(), displayInfo(), getGrade()
+Grades: A (≥90), B (≥75), C (≥60), F (<60)
+
+
+
+Problem Statement 2:
+
+Create a C++ program that implements an Array class to perform various operations on an array of integers. The program should demonstrate the concepts of classes, constructors, destructors, encapsulation, and member functions.
+
+The class should dynamically allocate memory for the array using the constructor and release the allocated memory using the destructor.
+
+Requirements
+
+Design an Array class with the following features:
+
+Constructors
+Default Constructor
+Creates an empty array of size 10.
+Initializes all elements to 0.
+Parameterized Constructor
+Accepts the size of the array as input.
+Dynamically allocates memory.
+Initializes all elements to 0.
+Copy Constructor
+Creates a deep copy of another Array object.
+Destructor
+Releases the dynamically allocated memory.
+Displays a message indicating that the memory has been deallocated.
+Member Functions
+
+Implement the following operations:
+
+Read elements into the array.
+Display all elements.
+Insert an element at a specified position.
+Delete an element from a specified position.
+Search for an element (Linear Search).
+Find the largest element.
+Find the smallest element.
+Calculate the sum of all elements.
+Calculate the average of the elements.
+Reverse the array.
+Sort the array in ascending order.
+Sort the array in descending order.
+Count even and odd numbers.
+Find the second largest element.
+Find the second smallest element.
+Remove duplicate elements.
+Merge two arrays.
+Copy one array into another.
+Resize the array.
+Display the current size of the array.
+Additional Requirements
+Use dynamic memory allocation (new and delete[]).
+Implement deep copy in the copy constructor.
+Perform proper boundary checking while inserting and deleting elements.
+Display appropriate error messages for invalid positions or empty arrays.
+Follow the principles of data hiding by keeping the data members private.
+Data Members
+
+The class should contain at least the following private members:
+
+Pointer to integer array
+Current number of elements
+Maximum capacity of the array
+Menu-Driven Program
+
+Create a menu-driven application that repeatedly allows the user to perform the above operations until they choose to exit.
+
+Example menu:
+
+========== ARRAY OPERATIONS ==========
+1. Read Array
+2. Display Array
+3. Insert Element
+4. Delete Element
+5. Search Element
+6. Find Maximum
+7. Find Minimum
+8. Find Sum
+9. Find Average
+10. Reverse Array
+11. Sort Ascending
+12. Sort Descending
+13. Count Even/Odd
+14. Find Second Largest
+15. Find Second Smallest
+16. Remove Duplicates
+17. Merge Arrays
+18. Copy Array
+19. Resize Array
+20. Display Array Size
+21. Exit
+======================================
+Constraints
+Array size should be between 1 and 1000.
+All elements are integers.
+Handle invalid user inputs gracefully.
