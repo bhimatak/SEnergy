@@ -38,3 +38,14 @@ I = 3
 am = 2
 C = 3
 Coding = 2
+
+
+Q. using pointer exp print the given line char by char
+Q. given a line get the output as shown
+
+I/p
+line: "This is a C++ class"
+
+o/p
+"This is A C++ clAss"
+
