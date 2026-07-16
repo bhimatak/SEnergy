@@ -39,6 +39,10 @@ int main()
 
     rValue(20);
 
+    {
+        int a=10;
+    }
+
 
     return 0;
 
