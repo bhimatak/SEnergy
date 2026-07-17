@@ -1,0 +1,2 @@
+write a program for employee class, ip for 10 employee details,
+print the details of all the employee using base class pointer 
