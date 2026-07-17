@@ -59,7 +59,7 @@ public:
     
     void PrintEmp() {
         printPerson();
-        addr
+       
         cout<<"\nEmployee Details"<<endl;
         cout<<"\nEmpNo: "<<e_num<<endl;
         cout<<"\nSalary: "<<salary<<endl;
@@ -76,7 +76,7 @@ int main()
     //p.printPerson();
     e.PrintEmp();
     e.printPerson();
-    e.addr;
+    
 
     return 0;
 }
