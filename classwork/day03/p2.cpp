@@ -13,6 +13,7 @@ protected:
     string name;
     char g;
     int age;
+
 public:
     Person(): name("Unknown"), g('U'), age(0){ cout<<"\nPerson Default\n";}
     Person(const string name, char g, int age)
@@ -42,6 +43,7 @@ public:
 
 class Employee : public Person
 {
+
 protected:
     int e_num;
     float salary;
@@ -57,6 +59,7 @@ public:
     
     void PrintEmp() {
         printPerson();
+        addr
         cout<<"\nEmployee Details"<<endl;
         cout<<"\nEmpNo: "<<e_num<<endl;
         cout<<"\nSalary: "<<salary<<endl;
@@ -72,6 +75,8 @@ int main()
     Employee e("xyz",'m',40,101,10000.1);
     //p.printPerson();
     e.PrintEmp();
+    e.printPerson();
+    e.addr;
 
     return 0;
 }
