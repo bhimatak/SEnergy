@@ -26,6 +26,7 @@ public:
 
 int addition(A objA, B objB)
 {
+    
     return objA.val1 + objB.val2; //can access private mem as function is declared as friend 
 }
 
@@ -41,3 +42,14 @@ int main()
     cout<<addition(a,b)<<endl;
 
 }
+
+/*
+class rect
+
+
+rect r1,r2;
+
+rect r3 = r1+r2;
+
+
+*/
