@@ -89,15 +89,16 @@ int main()
 
     cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
     v3.push_back(4);
-    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
-    v3.pop_back();
-    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
-    v3.erase(v3.begin());
-    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
-    v3.erase(v3.begin());
-    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    // cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    // v3.pop_back();
+    // cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    // v3.erase(v3.begin());
+    // cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    // v3.erase(v3.begin());
+    // cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
     
-
+    for(auto vr = v3.rbegin(); vr != v3.rend(); vr++)
+        cout<<*vr<<endl;
     
     
     
