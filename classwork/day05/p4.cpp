@@ -20,5 +20,16 @@ int main()
     for(itR=lst.rbegin();itR!=lst.rend();itR++)
         cout<<*itR<<endl;
 
+
+
+    list<int> l1={5,2,4,1,2};
+
+    l1.sort();
+
+    for(itL = l1.begin(); itL != l1.end();itL++)
+        cout<<*itL<<"\t";
+    cout<<endl;
+
+    
     return 0;
 }
