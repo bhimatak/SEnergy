@@ -31,5 +31,8 @@ int main()
         emp.display();
     }
 
-    
+    for(int i=0;i<ev.size();i++)
+        ev[i].display();
+
+
 }
