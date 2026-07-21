@@ -55,6 +55,50 @@ int main()
     vInt.push_back(70);
     cout<<vInt.size()<<endl;
     cout<<vInt.capacity()<<endl;
+
+    vector <int> v(10);
+
+    cout<<v.size()<<"\t"<<v.capacity()<<endl;
+
+    for(auto i: v)
+        cout<<i<<endl;
+    
+    v[5] = 10;
+    for(auto i: v)
+        cout<<i<<endl;
+
+    v.insert(v.begin()+0,30);
+    cout<<"\n==========\n";
+    for(auto i: v)
+        cout<<i<<endl;
+
+    
+    vector <int> v1 = {1,2,3,4,5};
+    vector <int> v2 = {10,20,30,40,50};
+
+    v1.insert(v1.end(), v2.begin(),v2.end());
+    v1.emplace(v1.end(),101);
+
+    v1.erase(v1.begin()+1);
+
+    cout<<"\n==========\n";
+    for(auto i: v1)
+        cout<<i<<endl;
+
+    vector <int> v3 = {1,2,3};
+
+    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    v3.push_back(4);
+    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    v3.pop_back();
+    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    v3.erase(v3.begin());
+    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    v3.erase(v3.begin());
+    cout<<"\nSize: "<<v3.size()<<"\nCap: "<<v3.capacity()<<endl;
+    
+
+    
     
     
 
