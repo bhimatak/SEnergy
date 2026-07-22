@@ -12,10 +12,14 @@ int mul(int x, int y)
     return (x*y);
 }
 
+
+
 int main()
 {
     //function pointer
-    int (*f1)(int, int);
+    //rDt (*funcPtr)(args);
+    
+    int (*f1)(int, int) = nullptr;
     f1 = add;
     cout<<f1(10,20)<<endl;
     f1 = mul;
