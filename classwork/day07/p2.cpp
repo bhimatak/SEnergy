@@ -20,6 +20,15 @@ void func(shared_ptr<Rect> p)
     
 }
 
+
+void func2(unique_ptr<Rect> p)
+{
+    p->printArea();
+    cout<<"\nIn Function: ";
+    //cout<<p.use_count()<<endl;
+    
+}
+
 int main()
 {
     //Rect *r1 = new Rect(10,4);
@@ -36,8 +45,18 @@ int main()
     // cout<<"\nP1"<<endl;
     // P1->printArea();
 
-   /* int *ptr = new int(10);
+   /* int *ptr = new int[10];
     int *temp = ptr;
+    while(ptr!=NULL)
+    {
+        cout<<*ptr;
+        ptr = ptr->next;
+    }
+    delete temp
+    delete ptr
+    ptr = temp;
+
+
     */
 
 
@@ -57,6 +76,7 @@ int main()
     cout<<"\nAfter Function call\n";
     cout<<P3.use_count()<<endl;
     
+    func2(P1);
 
 
     return 0;
