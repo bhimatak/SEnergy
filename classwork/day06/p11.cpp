@@ -25,9 +25,8 @@ int func2(int n){
     return (n %2 == 0);
 } 
 
-int func4(int &ptr){
-    //static int counter;
-    return *ptr++*10;
+int func4(int &n){
+    return n++*10;
 }
 
 
@@ -81,8 +80,8 @@ int main()
 
     vector <int> fv(8);
     int counter=0;
-    std::generate(fv.begin(), fv.end(),func4(counter));
-    
+    std::generate(fv.begin(), fv.end(),bind(func4,ref(counter)));
+    cout<<"\n============\n";
     for_each(fv.begin(), fv.end(), func1);
 
     return 0;
