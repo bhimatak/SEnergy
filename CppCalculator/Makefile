@@ -1,0 +1,119 @@
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -Wall -Wextra -g -I inc -std=c++17
+LDFLAGS =
+
+# Directories
+SRC_DIR = src
+INC_DIR = inc
+OBJ_DIR = obj
+BIN_DIR = bin
+LIB_DIR = lib
+TEST_DIR = tests
+THIRD_PARTY = third_party/googletest
+
+# Google Test paths
+GTEST_DIR = $(THIRD_PARTY)/googletest
+GMOCK_DIR = $(THIRD_PARTY)/googlemock
+GTEST_INC = $(GTEST_DIR)/include
+GMOCK_INC = $(GMOCK_DIR)/include
+GTEST_LIB = $(THIRD_PARTY)/build/lib/libgtest.a
+GMOCK_LIB = $(THIRD_PARTY)/build/lib/libgmock.a
+GTEST_MAIN_LIB = $(THIRD_PARTY)/build/lib/libgtest_main.a
+GMOCK_MAIN_LIB = $(THIRD_PARTY)/build/lib/libgmock_main.a
+
+# Target
+TARGET = $(BIN_DIR)/calculator.exe
+TEST_TARGET = $(BIN_DIR)/calculator_test.exe
+
+# Source and object files (app)
+APP_SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+APP_OBJECTS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(APP_SOURCES))
+
+# Source and object files (tests)
+TEST_SOURCES = $(wildcard $(TEST_DIR)/*.cpp)
+TEST_OBJECTS = $(patsubst $(TEST_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(TEST_SOURCES))
+
+# Filter out main.cpp for library build
+LIB_SOURCES = $(filter-out $(SRC_DIR)/main.cpp,$(APP_SOURCES))
+LIB_OBJECTS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(LIB_SOURCES))
+
+# ============================================================================
+# Targets
+# ============================================================================
+
+# Default target
+all: $(TARGET)
+
+# Build app
+$(TARGET): $(APP_OBJECTS) | $(BIN_DIR)
+	$(CXX) $(LDFLAGS) $^ -o $@
+
+# Compile app source files
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# ============================================================================
+# Test Targets
+# ============================================================================
+
+# Build and run tests
+test: $(TEST_TARGET)
+	./$(TEST_TARGET)
+
+# Build test executable
+$(TEST_TARGET): $(TEST_OBJECTS) $(LIB_OBJECTS) $(GTEST_LIB) $(GMOCK_LIB) | $(BIN_DIR)
+	$(CXX) $(LDFLAGS) $^ -o $@ -lpthread
+
+# Compile test files
+$(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp | $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -I $(GTEST_INC) -I $(GMOCK_INC) -c $< -o $@
+
+# Build Google Test libraries (if not exists)
+$(GTEST_LIB): $(shell find $(THIRD_PARTY) -name "*.cc" 2>/dev/null)
+	@echo "Building Google Test..."
+	@cd $(THIRD_PARTY)/build && mingw32-make -j4
+
+# ============================================================================
+# Common Targets
+# ============================================================================
+
+# Create directories if they don't exist
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+# Clean build files (Windows compatible)
+clean:
+	if exist $(OBJ_DIR) del /q $(OBJ_DIR)\*.o
+	if exist $(BIN_DIR) del /q $(BIN_DIR)\*.exe
+
+# Clean everything including third_party build
+clean-all: clean
+	if exist $(THIRD_PARTY)/build rmdir /s /q $(THIRD_PARTY)\build
+
+# Run the program
+run: $(TARGET)
+	./$(TARGET)
+
+# ============================================================================
+# Useful Combinations
+# ============================================================================
+
+# Build and run tests, then build app
+all-with-tests: test all
+
+# Run tests with verbose output
+test-verbose: $(TEST_TARGET)
+	./$(TEST_TARGET) --gtest_print_time=1
+
+# Run specific test
+test-add: $(TEST_TARGET)
+	./$(TEST_TARGET) --gtest_filter="CalculatorTest.Add*"
+
+test-mock: $(TEST_TARGET)
+	./$(TEST_TARGET) --gtest_filter="MockCalculatorTest*"
+
+.PHONY: all clean run test clean-all all-with-tests test-verbose test-add test-mock
